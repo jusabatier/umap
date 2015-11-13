@@ -23,23 +23,6 @@
 {% block bottom_js %}
   {{ block.super }}
   <script type="text/javascript">
-    var login = document.querySelector('a.login');
-    if (login) {
-      L.DomEvent.on(login, 'click', function (e) {
-        L.DomEvent.stop(e);
-        L.Storage.Xhr.login({
-            "login_required": this.getAttribute('href'),
-            "redirect": "/"
-        });
-      });
-    }
-    var logout = document.querySelector('a.logout');
-    if (logout) {
-      L.DomEvent.on(logout, 'click', function (e) {
-        L.DomEvent.stop(e);
-        L.Storage.Xhr.logout(this.getAttribute('href'));
-      });
-    }
     var getMore = function (e) {
       L.DomEvent.stop(e);
       L.S.Xhr._ajax({
