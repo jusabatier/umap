@@ -58,7 +58,6 @@ INSTALLED_APPS = (
     'leaflet_storage',
     'umap',
     'compressor',
-    'social.apps.django_app.default',
 )
 
 # =============================================================================
@@ -105,8 +104,6 @@ TEMPLATE_DIRS = (
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.template.context_processors.request',
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
     'umap.context_processors.feedback_link',
     'umap.context_processors.version',
 )
@@ -157,20 +154,3 @@ MAPQUEST_KEY = 'set me'
 # =============================================================================
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
-
-SOCIAL_AUTH_DEFAULT_USERNAME = lambda u: slugify(u)
-SOCIAL_AUTH_ASSOCIATE_BY_EMAIL = True
-LOGIN_URL = "login"
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/login/popup/end/"
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.social_auth.associate_by_email',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
-)
