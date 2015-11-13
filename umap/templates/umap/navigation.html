@@ -11,12 +11,12 @@
       {% if user.is_authenticated %}
         <li><a href="{% url 'user_maps' user.username %}">{% trans "My maps" %} ({{ user }})</a></li>
       {% else %}
-        <li><a href="{% url 'login' %}" class="login">{% trans "Log in" %} / {% trans "Sign in" %}</a></li>
+        <li><a href="{% url 'cas-login' %}" class="login">{% trans "Log in" %}</a></li>
       {% endif %}
       <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
       <li class="mhide"><a href="{{ UMAP_FEEDBACK_LINK }}">{% trans "Feedback" %}</a></li>
       {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}" class="logout">{% trans "Log out" %}</a></li>
+        <li><a href="{% url 'cas-logout' %}" class="logout">{% trans "Log out" %}</a></li>
       {% endif %}
     </ul>
   </section>
